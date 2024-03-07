@@ -1,0 +1,87 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "Local server"
+    },
+    {
+      "url": "https://api_url_testing",
+      "description": "Testing server"
+    },
+    {
+      "url": "https://api_url_production",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/stockmanagement/api/v1/stock": {
+      "summary": "Get  Item",
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/stock"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dbstock"
+                }
+              }
+            },
+            "description": "Changed"
+          }
+        },
+        "operationId": "GetCustomerAccounts",
+        "summary": "Get Customer Accounts"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "stock": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "buy": {
+            "type": "string"
+          },
+          "sell": {
+            "type": "string"
+          }
+        }
+      },
+      "dbstock": {
+        "type": "object",
+        "properties": {
+          "id":{
+            "type":"string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "buy": {
+            "type": "string"
+          },
+          "sell": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
